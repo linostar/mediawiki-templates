@@ -1,0 +1,26 @@
+{{#tag:html|
+<style>
+  .codeBoxArea {
+    border: 1px rgb(140, 140, 140) solid;
+    background-color: rgb(180, 180, 180);
+    width: 100%;
+    overflow: auto;
+    resize: none;
+    cursor: text !important; 
+  }
+</style>
+
+<div>
+<input type="button" value="Select code" onclick='SelectText(this.parentNode.children[2]);'><br/>
+<textarea class="codeBoxArea" rows={{{1}}} readonly="readonly">{{{2}}}</textarea>
+</div>
+
+<script>
+  function SelectText(element) {
+    element.focus();
+    element.setSelectionRange(0, element.value.length);
+  }
+
+</script>
+}}
+
