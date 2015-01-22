@@ -3,16 +3,19 @@
   .codeBoxArea {
     border: 1px rgb(140, 140, 140) solid;
     background-color: rgb(180, 180, 180);
-    width: 100%;
+    width: 99%;
     overflow: auto;
     resize: none;
     cursor: text !important; 
   }
+  .codeBtn {
+    float: right;
+  }
 </style>
 
 <div>
-<input type="button" value="Select code" onclick='SelectText(this.parentNode.children[2]);'><br/>
-<textarea class="codeBoxArea" rows={{{1}}} readonly="readonly">{{{2}}}</textarea>
+<span class="selectBtnSpan"></span>
+<textarea class="codeBoxArea" rows={{{1}}} readonly="readonly">{{{code}}}</textarea>
 </div>
 
 <script>
@@ -21,6 +24,9 @@
     element.setSelectionRange(0, element.value.length);
   }
 
+  var spans = document.getElementsByClassName("selectBtnSpan");
+  for (var i=0; i<spans.length; i++)
+    spans[i].innerHTML = "<input type='button' class='codeBtn' value='select code' onclick='SelectText(this.parentNode.parentNode.children[1]);'><br/>";
 </script>
 }}
 
