@@ -8,13 +8,13 @@
     resize: none;
     cursor: text !important; 
   }
-  .codeBtn {
+  .selectLink {
     float: right;
   }
 </style>
 
 <div>
-<span class="selectBtnSpan"></span>
+<div class="selectBtnDiv"></div>
 <textarea class="codeBoxArea" rows={{{1}}} readonly="readonly">{{{code}}}</textarea>
 </div>
 
@@ -24,9 +24,9 @@
     element.setSelectionRange(0, element.value.length);
   }
 
-  var spans = document.getElementsByClassName("selectBtnSpan");
-  for (var i=0; i<spans.length; i++)
-    spans[i].innerHTML = "<input type='button' class='codeBtn' value='select code' onclick='SelectText(this.parentNode.parentNode.children[1]);'><br/>";
+  var btnDivs = document.getElementsByClassName("selectBtnDiv");
+  for (var i=0; i<btnDivs.length; i++)
+    btnDivs[i].innerHTML = "<font size='-2'><a href='#' class='selectLink' onclick='SelectText(this.parentNode.parentNode.parentNode.children[1]); return false;'>[select code]</a></font>";
 </script>
 }}
 
